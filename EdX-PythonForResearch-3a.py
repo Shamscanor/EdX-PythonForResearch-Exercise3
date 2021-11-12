@@ -9,6 +9,7 @@
 
 import statistics
 def moving_window_average(x, n_neighbors):
+    m=[]
     for n in range(0,len(x)):
         if (n-n_neighbors)<0 and (n+n_neighbors)>(len(x)-1):
           k1=-1*(n-n_neighbors)
@@ -29,8 +30,9 @@ def moving_window_average(x, n_neighbors):
         else:
           d1=[x[h] for h in range(n-n_neighbors,n+n_neighbors+1)]
           #print(d1)
-        m = statistics.mean(d1)
-        print(m)
+        m.append(statistics.mean(d1))
+    return(m)
+    print(m)
         
 
 moving_window_average([0,10,5,3,1,5],1)
